@@ -1,0 +1,220 @@
+<project name="titan" basedir="." default="deploy">
+
+	<!-- Propriedades do Projeto -->
+	<property file="build.properties"/>
+
+	<!-- Classpath para a compilacao -->
+	<path id="classpath">
+
+		<fileset dir="${project.libs}">
+			<include name="*.jar" />
+		</fileset>
+
+		<fileset dir="${project.extraLibs}">
+			<include name="*.jar" />
+		</fileset>
+
+		<fileset dir="${ejb}" >
+			<include name="*.jar" />
+		</fileset>
+
+	</path>
+
+	<target name="init">
+		<echo>+ ===================================================== +</echo>
+		<echo>+            INICIANDO DEPLOY PROJETO WEB               +</echo>
+		<echo>+ ===================================================== +</echo>
+	</target>
+
+	<!-- Exclui diretorios de build  -->
+	<target name="clean"
+	      description="Limpa tudo">
+		<echo>+ ===================================================== +</echo>
+		<echo>+ Excluido diretorio de build                           +</echo>
+		<echo>+ ===================================================== +</echo>
+		<delete dir="${project.build}"/>
+
+		<delete>
+			<fileset dir=".">
+				<include name="${ant.project.name}.war"/>
+			</fileset>
+		</delete>
+
+	</target>
+
+	<!-- Cria e prepara estrutura de diretórios -->
+	<target name="prepare"
+		      description="Cria e prepara os diretorios" depends="clean">
+		<echo>+ ===================================================== +</echo>
+		<echo>+ Criando estrutura de diretorios para o build          +</echo>
+		<echo>+ ===================================================== +</echo>
+		<mkdir  dir="${project.build}"/>
+		<mkdir  dir="${project.build}/WEB-INF/classes"/>
+		<mkdir  dir="${project.build}/WEB-INF/lib"/>
+		<mkdir  dir="${project.build}/WEB-INF/config"/>
+		<mkdir  dir="${project.build}/jsp"/>
+		<mkdir  dir="${project.build}/js"/>
+		<mkdir  dir="${project.build}/css"/>
+	</target>
+
+
+	<!-- Compila o codigo e coloca no diretorio do Build -->
+	<target name="compile" depends="prepare">
+		<echo>+ ===================================================== +</echo>
+		<echo>+ Compilando fontes.                                    +</echo>
+		<echo>+ ===================================================== +</echo>
+		<javac srcdir="${project.src}" destdir="${project.build}/WEB-INF/classes" debug="true">
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+
+	<!-- Copia as libs para o build -->
+	<target name="copy-lib" depends="clean" description="Copia as lib para o diretorio do build">
+		<echo>+ ===================================================== +</echo>
+		<echo>+ Copiando libs.                                        +</echo>
+		<echo>+ ===================================================== +</echo>
+		<copy todir="${project.build}/WEB-INF/lib" failonerror="true">
+			<fileset dir="${project.libs}">
+				<patternset>
+					<include name="*.jar" />
+				</patternset>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- Copia demais arquivos para o build -->
+	<target name="copy-files" depends="prepare" description="Copia os demais arquivos">
+		<echo>+ ===================================================== +</echo>
+		<echo>+ Copiando arquivos                                     +</echo>
+		<echo>+ ===================================================== +</echo>
+		<copy todir="${project.build}/jsp" failonerror="true">
+			<fileset dir="${project.jsp}" />
+		</copy>
+
+		<copy todir="${project.build}/css" failonerror="true">
+			<fileset dir="${project.css}" />
+		</copy>
+
+		<copy todir="${project.build}/jsp" failonerror="true">
+			<fileset dir="${project.js}" />
+		</copy>
+
+		<copy todir="${project.build}/img" failonerror="true">
+			<fileset dir="${project.img}" />
+		</copy>
+
+		<copy todir="${project.build}" failonerror="true">
+			<fileset dir=".">
+				<patternset>
+					<include name="*.jsp"/>
+				</patternset>
+			</fileset>
+		</copy>
+
+		<copy todir="${project.build}/WEB-INF" failonerror="true">
+			<fileset dir="${project.webinf}">
+				<patternset>
+					<include name="*.xml"/>
+				</patternset>
+			</fileset>
+		</copy>
+
+		<copy todir="${project.build}/WEB-INF/config" failonerror="true">
+			<fileset dir="${project.webinf}/config" />
+		</copy>
+
+		<copy todir="${project.build}/WEB-INF/classes/${project.messageResources}" failonerror="true" overwrite="true">
+			<fileset dir="${project.src}/${project.messageResources}" />
+		</copy>
+
+		<copy todir="${project.build}/WEB-INF/classes" failonerror="true" overwrite="true">
+			<fileset dir="${project.src}">
+				<patternset>
+					<include name="*.properties" />
+				</patternset>
+			</fileset>
+		</copy>
+
+	</target>
+
+	<!-- Cria o build completo para o deploy -->
+	<target name="war"
+        description="Faz o build completo" depends="compile, copy-lib, copy-files">
+		<echo>+ ===================================================== +</echo>
+		<echo>+ Criando arquivo .war                                  +</echo>
+		<echo>+ ===================================================== +</echo>
+		<war
+        basedir="${project.build}"
+        warfile="${ant.project.name}.war"
+        webxml="${project.webinf}/web.xml">
+		</war>
+	</target>
+
+	<!-- Faz o deploy da aplicacao -->
+	<target name="deploy"
+	        description="Faz o deploy" depends="init, war">
+		<echo>+ ===================================================== +</echo>
+		<echo>+ Fazendo deploy em                                     +</echo>
+		<echo message="+ ${project.deploy.dir}"/>
+		<echo>+ ===================================================== +</echo>
+		<copy todir="${project.deploy.dir}" failonerror="true" overwrite="true" >
+			<fileset dir=".">
+				<patternset>
+					<include name="*.war"/>
+				</patternset>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- Faz o deploy do Projeto EJB e do Projeto WEB -->
+	<target name="deploy-ear">
+		<ant dir="${ejb}" target="jar" inheritall="false"/>
+		<antcall target="war" />
+
+		<ear destfile="./${ant.project.name}.ear"  update="true" appxml="./metadata/application.xml" >
+			<fileset dir="${ejb}" includes="*.jar,*.war" />
+			<fileset dir="${ejb}/lib" includes="*.jar,*.war" />
+			<fileset dir="." includes="*.jar,*.war" />
+		</ear>
+
+		<copy todir="${project.deploy.dir}" failonerror="true" overwrite="true">
+			<fileset dir=".">
+				<patternset>
+					<include name="*.ear" />
+				</patternset>
+			</fileset>
+		</copy>
+
+	</target>
+
+	<!-- Cria o .jar do pacote Util para ser reaproveitado no Projeto EJB -->
+	<target name="jar-util-for-ejb" description="JARs the Task" depends="compile">
+		<echo>+ ===================================================== +</echo>
+		<echo>+ Criando jar do pacote Util para ser                   +</echo>
+		<echo>+         reaproveitado no Projeto EJB                  +</echo>
+		<echo>+ ===================================================== +</echo>
+		<jar destfile="./${ant.project.name}-util.jar">
+			<fileset dir="${project.build}/WEB-INF/classes">
+				<include name="**/**/util/**/**/*.class" />
+				<include name="**/**/exception/**/**/*.class" />
+			</fileset>
+		</jar>
+
+		<echo>+ ===================================================== +</echo>
+		<echo message="+ Copiando jar ${ant.project.name}-util.jar para " />
+		<echo message="+ ${ejb}\lib" />
+		<echo>+ ===================================================== +</echo>
+
+		<copy todir="${ejb}\lib" failonerror="true" overwrite="true">
+			<fileset dir=".">
+				<patternset>
+					<include name="*.jar" />
+				</patternset>
+			</fileset>
+		</copy>
+
+
+	</target>
+
+
+</project>

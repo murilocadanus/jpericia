@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Objeto Plug-in
+Bundle-SymbolicName: org.jpericia.objeto; singleton:=true
+Bundle-Version: 0.0.1
+Bundle-ClassPath: objeto.jar
+Bundle-Activator: org.jpericia.objeto.ObjetoPlugin
+Bundle-Vendor: JPericia
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.jpericia.core,
+ org.jpericia.common,
+ org.jpericia.analise
+Eclipse-LazyStart: true

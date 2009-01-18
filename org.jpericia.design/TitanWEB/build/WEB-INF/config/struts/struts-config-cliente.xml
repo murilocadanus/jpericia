@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<form-beans>
+
+		<form-bean name="clienteForm"
+			type="com.vbkn.titan.form.cliente.ClienteForm" />
+			
+	</form-beans>
+
+	<global-exceptions></global-exceptions>
+
+	<global-forwards></global-forwards>
+
+	<action-mappings>
+	
+	<!-- Cadastro de Clientes -->
+
+		<action path="/cadastro/cliente" 
+				name="clienteForm"
+				validate="false"
+				forward="tile.cadastro.cliente"
+				/>
+				
+		<action path="/cadastro/cliente/salvar" 
+				name="clienteForm"
+				type="com.vbkn.titan.action.cliente.ClienteAction"
+				validate="true"
+				input="/cadastro/cliente.do"
+				parameter="method">
+				<forward name="success" path="tile.cadastro.cliente" />
+				<forward name="fail" path="tile.cadastro.cliente" />
+		</action>
+		
+		<action path="/cadastro/cliente/inicioConsulta" 
+				name="clienteForm"
+				validate="false"
+				forward="tile.inicioConsulta.cliente"
+				/>
+		
+		<action path="/cadastro/cliente/consultaCliente" 
+				name="clienteForm"
+				type="com.vbkn.titan.action.cliente.ClienteAction"
+				validate="false"
+				input="/cadastro/cliente.do"
+				parameter="method">
+				<forward name="success" path="tile.consulta.cliente" />
+				<forward name="fail" path="tile.cadastro.cliente" />
+		</action>
+
+	</action-mappings>
+
+</struts-config>
+

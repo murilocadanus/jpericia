@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+              "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+              "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+              
+<tiles-definitions>
+
+	<definition name="tile.default" path="/jsp/common/layout/default.jsp">
+		<put name="title" value="Sistema Titan" />
+		<put name="menu" value="/jsp/common/layout/default/menu.jsp" />
+		<put name="body" value="/jsp/common/layout/default/blank.jsp" />
+	</definition>
+	
+	<definition name="tile.cadastro.cliente" extends="tile.default">
+		<put name="body" value="/jsp/cadastros/cliente/cliente.jsp" />
+	</definition>
+	
+	<definition name="tile.inicioConsulta.cliente" extends="tile.default">
+		<put name="body" value="/jsp/cadastros/cliente/inicioConsulta.jsp" />
+	</definition>
+	
+	<definition name="tile.consulta.cliente" extends="tile.default">
+		<put name="body" value="/jsp/cadastros/cliente/consulta.jsp" />
+	</definition>
+	
+</tiles-definitions>

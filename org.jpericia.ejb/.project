@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>org.jpericia.ejb</name>
+	<comment></comment>
+	<projects>
+		<project>org.jpericia.common</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.ibm.etools.common.migration.MigrationBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>srccommon</name>
+			<type>2</type>
+			<location>/home/psaux/eclipse/workspace_jpericia/org.jpericia.common/src</location>
+		</link>
+	</linkedResources>
+</projectDescription>

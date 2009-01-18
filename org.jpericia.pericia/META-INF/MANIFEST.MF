@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Pericia Plug-in
+Bundle-SymbolicName: org.jpericia.pericia; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: pericia.jar,
+ lib/nebula_cdatetime_0.9.0.jar,
+ lib/itext-2.0.5.jar
+Bundle-Activator: org.jpericia.pericia.PericiaPlugin
+Bundle-Vendor: JPericia
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.jpericia.core,
+ org.jpericia.common,
+ org.jpericia.organizacao,
+ org.jpericia.perito
+Eclipse-LazyStart: true
+Export-Package: org.jpericia.pericia.bussinessdelegate

@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Analise Plug-in
+Bundle-SymbolicName: org.jpericia.analise; singleton:=true
+Bundle-Version: 0.0.1
+Bundle-ClassPath: analise.jar,
+ lib/nebula_cdatetime_0.9.0.jar
+Bundle-Activator: org.jpericia.analise.AnalisePlugin
+Bundle-Vendor: JPericia
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.jpericia.core,
+ org.jpericia.common,
+ org.jpericia.pericia,
+ org.jpericia.perito
+Eclipse-LazyStart: true
+Export-Package: org.jpericia.analise.actions,
+ org.jpericia.analise.businessdelegate

@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Perito Plug-in
+Bundle-SymbolicName: org.jpericia.perito; singleton:=true
+Bundle-Version: 0.0.1
+Bundle-ClassPath: perito.jar,
+ lib/org.eclipse.nebula.widgets.formattedtext_1.0.0.jar
+Bundle-Activator: org.jpericia.perito.PeritoPlugin
+Bundle-Vendor: JPericia
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.jpericia.core,
+ org.jpericia.common
+Eclipse-LazyStart: true
+Export-Package: org.jpericia.perito.businessdelegate,
+ org.jpericia.perito.views

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/TitanEJB"/>
+	<classpathentry kind="lib" path="extraLibs/javaee.jar"/>
+	<classpathentry kind="lib" path="extraLibs/javax.servlet.jar"/>
+	<classpathentry kind="lib" path="extraLibs/log4j.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/antlr-2.7.2.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-beanutils-1.7.0.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-chain-1.1.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-digester-1.8.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-fileupload-1.1.1.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-io-1.1.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-lang-2.1.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-validator-1.3.1.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/displaytag-1.1.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/jstl-1.1.2.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/oro-2.0.8.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/standard-1.0.6.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/struts-core-1.3.8.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/struts-extras-1.3.8.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/struts-taglib-1.3.8.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/struts-tiles-1.3.8.jar"/>
+	<classpathentry kind="output" path="WEB-INF/classes"/>
+</classpath>

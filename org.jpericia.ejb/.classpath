@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/titan-util.jar"/>
+	<classpathentry kind="lib" path="extralibs/javaee.jar"/>
+	<classpathentry kind="lib" path="extralibs/log4j.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.jpericia.common"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.core.runtime_3.2.0.v20060603.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.osgi_3.2.2.R32x_v20070118.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

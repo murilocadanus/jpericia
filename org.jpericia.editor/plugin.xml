@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="org.jpericia.editor.actionEditor"
+            label="Editor"
+            visible="true">
+         <action
+               class="org.jpericia.editor.actions.NewAction"
+               icon="icons/application_view_gallery.png"
+               id="org.jpericia.editor.novaCena"
+               label="Cena"
+               menubarPath="file/newWizard/additions"
+               style="push"
+               toolbarPath="editor"
+               tooltip="Nova cena"/>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.jpericia.editor.perspective.EditorPerspective"
+            icon="icons/application_view_gallery.png"
+            id="org.jpericia.editor.perspective.editorPerspective"
+            name="Editor"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.jpericia.editor.actions.ShapesEditor"
+            contributorClass="org.jpericia.editor.ShapesEditorActionBarContributor"
+            default="false"
+            icon="icons/application_view_gallery.png"
+            id="org.jpericia.editor.actions.shapesEditor"
+            name="Editor"/>
+   </extension>
+
+
+</plugin>

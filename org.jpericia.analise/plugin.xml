@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Analise"
+            id="org.jpericia.analise">
+      </category>
+      <view
+            category="org.jpericia.analise"
+            class="org.jpericia.analise.views.AnaliseView"
+            icon="icons/cog.png"
+            id="org.jpericia.analise.views.analiseView"
+            name="Análise">
+      </view>
+      <view
+            category="org.jpericia.analise"
+            class="org.jpericia.analise.views.TipoAnaliseView"
+            icon="icons/film.png"
+            id="org.jpericia.analise.views.tipoAnaliseView"
+            name="Tipo análise">
+      </view>
+	  <view
+            category="org.jpericia.analise"
+            class="org.jpericia.analise.views.CenaView"
+            icon="icons/map.png"
+            id="org.jpericia.analise.views.cenaView"
+            name="Cena">
+      </view>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="org.jpericia.analise.actionAnalise"
+            label="actionSet.label.tipoAnalise"
+            visible="true">
+		 <action
+               class="org.jpericia.analise.actions.AnaliseWizardAction"
+               icon="icons/cog_add.png"
+               id="org.jpericia.analise.novaAnalise"
+               label="%action.label.novaAnalise"
+               menubarPath="file/newWizard/additions"
+               style="push"
+               toolbarPath="analise"
+               tooltip="%action.tooltip.novaAnalise">
+         </action>
+         <action
+               class="org.jpericia.analise.actions.TipoAnaliseWizardAction"
+               icon="icons/film_add.png"
+               id="org.jpericia.analise.novoTipoAnalise"
+               label="%action.label.novoTipoAnalise"
+               menubarPath="file/newWizard/additions"
+               style="push"
+               toolbarPath="analise"
+               tooltip="%action.tooltip.novoTipoAnalise">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.jpericia.analise.perspective.AnalisePerspective"
+            icon="icons/cog.png"
+            id="org.jpericia.analise.perspective.analisePerspective"
+            name="Análise">
+      </perspective>
+   </extension>
+</plugin>

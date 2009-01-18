@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="JPericia"
+            id="org.jpericia.pericia">
+      </category>
+      <view
+            name="Pericia"
+            icon="icons/zoom.png"
+            category="org.jpericia.pericia"
+            class="org.jpericia.pericia.views.PericiaView"
+            id="org.jpericia.pericia.views.periciaView">
+      </view>
+      <view
+            category="org.jpericia.pericia"
+            class="org.jpericia.pericia.views.AnexoView"
+            icon="icons/link.png"
+            id="org.jpericia.pericia.views.anexoView"
+            name="Anexo">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="org.jpericia.pericia.actionPericia"
+            label="%actionSet.label.pericia"
+            visible="true">
+         <action
+               class="org.jpericia.pericia.actions.PericiaWizardAction"
+               icon="icons/zoom_add.png"
+               id="org.jpericia.pericia.novaPericia"
+               label="%action.label.novaPericia"
+               menubarPath="file/newWizard/additions"
+               style="push"
+               toolbarPath="pericia"
+               tooltip="%action.tooltip.novaPericia"/>
+         <action
+               class="org.jpericia.pericia.actions.AnexoWizardAction"
+               icon="icons/link_add.png"
+               id="org.jpericia.pericia.novoAnexo"
+               label="%action.label.novoAnexo"
+               menubarPath="file/newWizard/additions"
+               style="push"
+               toolbarPath="pericia"
+               tooltip="%action.tooltip.novoAnexo">
+         </action>
+      </actionSet>
+   </extension>   
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.jpericia.pericia.perspective.PericiaPerspective"
+            icon="icons/zoom.png"
+            id="org.jpericia.pericia.perspective.periciaPerspective"
+            name="Pericia"/>
+   </extension>
+
+</plugin>

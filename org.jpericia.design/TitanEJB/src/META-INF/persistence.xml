@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence>
+   <persistence-unit name="titan">
+      <jta-data-source>java:/MySqlDS</jta-data-source>
+   </persistence-unit>
+</persistence>

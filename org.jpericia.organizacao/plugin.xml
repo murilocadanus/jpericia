@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Organização"
+            id="org.jpericia.organizacao">
+      </category>
+      <view
+            category="org.jpericia.organizacao"
+            class="org.jpericia.organizacao.views.TituloContatoView"
+            icon="icons/award_star.png"
+            id="org.jpericia.organizacao.views.tituloContatoView"
+            name="Título Contato"/>
+      <view
+            category="org.jpericia.organizacao"
+            class="org.jpericia.organizacao.views.TipoOrganizacaoView"
+            icon="icons/shield.png"
+            id="org.jpericia.organizacao.views.tipoOrganizacaoView"
+            name="Tipo Organização"/>
+      <view
+            category="org.jpericia.organizacao"
+            class="org.jpericia.organizacao.views.OrganizacaoView"
+            icon="icons/building.png"
+            id="org.jpericia.organizacao.views.organizacaoView"
+            name="Organização"/>
+      <view
+            class="org.jpericia.organizacao.views.ContatoOrganizacaoView"
+            icon="icons/telephone.png"
+            id="org.jpericia.organizacao.views.contatoorganizacaoView"
+            name="Contato Organização">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="org.jpericia.organizacao.actionOrganizacao"
+            label="%actionSet.label.organizacao"
+            visible="true">
+         <action
+               class="org.jpericia.organizacao.actions.OrganizacaoWizardAction"
+               icon="icons/building_add.png"
+               id="org.jpericia.organizacao.novaOrganizacao"
+               label="%action.label.novaOrganizacao"
+               menubarPath="file/newWizard/additions"
+               style="push"
+               toolbarPath="organizacao"
+               tooltip="%action.tooltip.novaOrganizacao"/>
+         <action
+               class="org.jpericia.organizacao.actions.TipoOrganizacaoWizardAction"
+               icon="icons/shield_add.png"
+               id="org.jpericia.organizacao.novoTipoOrganizacao"
+               label="%actionSet.label.tipoOrganizacao"
+               menubarPath="file/newWizard/additions"
+               style="push"
+               toolbarPath="organizacao"
+               tooltip="%action.tooltip.novoTipoOrganizacao"/>
+         <action
+               class="org.jpericia.organizacao.actions.ContatoOrganizacaoWizardAction"
+               icon="icons/telephone_add.png"
+               id="org.jpericia.organizacao.novoContatoOrganizacao"
+               label="%actionSet.label.contatoOrganizacao"
+               menubarPath="file/newWizard/additions"
+               style="push"
+               toolbarPath="organizacao"
+               tooltip="%action.tooltip.novoContatoOrganizacao"/>
+         <action
+               class="org.jpericia.organizacao.actions.TituloContatoWizardAction"
+               icon="icons/award_star_add.png"
+               id="org.jpericia.organizacao.novoTituloContato"
+               label="%actionSet.label.tituloContato"
+               menubarPath="file/newWizard/additions"
+               style="push"
+               toolbarPath="organizacao"
+               tooltip="%action.tooltip.novoTituloContato"/>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.jpericia.organizacao.perspective.OrganizacaoPerspective"
+            icon="icons/building.png"
+            id="org.jpericia.organizacao.perspective.organizacaoPerspective"
+            name="Organização"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+	<local-tx-datasource>
+		<jndi-name>PgSQLDS</jndi-name>
+		<connection-url>jdbc:postgresql://localhost:5432/jpericia</connection-url>
+		<driver-class>org.postgresql.Driver</driver-class>
+		<user-name>jpericia</user-name>
+		<password>jpericia</password>
+	</local-tx-datasource>
+</datasources>

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Editor Plug-in
+Bundle-SymbolicName: org.jpericia.editor;singleton:=true
+Bundle-Version: 0.0.1
+Bundle-ClassPath: editor.jar
+Bundle-Activator: org.jpericia.editor.EditorPlugin
+Bundle-Vendor: JPericia
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.views,
+ org.eclipse.draw2d,
+ org.eclipse.gef,
+ org.jpericia.core
+Eclipse-LazyStart: true

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="plugin_export" name="build">
+   <target name="plugin_export">
+
+      <!-- Define build directories -->
+      <property name="build.root" 
+         location="/Build/QualityEclipse" />
+      <property name="build.temp" 
+         location="${build.root}/temp" />
+      <property name="build.out" 
+         location="${build.root}/product" />
+
+      <!-- Create build directories -->
+      <delete dir="${build.temp}" />
+      <mkdir dir="${build.temp}" />
+      <mkdir dir="${build.out}" />
+
+      <!-- Read the manifest.mf -->
+      <copy file="meta-inf/manifest.mf" todir="${build.temp}" />
+      <replace file="${build.temp}/manifest.mf">
+         <replacefilter token=":=" value="="/>
+         <replacefilter token=":" value="="/>
+         <replacetoken>;</replacetoken>
+         <replacevalue>
+         </replacevalue>
+      </replace>
+      <property file="${build.temp}/manifest.mf"/>
+
+      <!-- Plugin locations -->
+      <property name="plugin.dir" value=
+         "com.qualityeclipse.favorites_${Bundle-Version}" />
+      <property name="plugin.files" location=
+         "${build.temp}/files/${plugin.dir}" />
+      <property name="plugin.jar" location=
+         "${build.temp}/jars/QualityEclipse/Favorites/eclipse/plugins/${plugin.dir}.jar" />
+      <property name="product.zip" value=
+         "${build.out}/Favorites_v${Bundle-Version}.zip"/>
+
+      <!-- Assemble the files -->
+      <mkdir dir="${plugin.files}" />
+      <jar destfile="${plugin.files}/favorites.jar">
+         <fileset dir="bin" />
+      </jar>
+      <jar destfile="${plugin.files}/favoritessrc.zip">
+         <fileset dir="src" />
+      </jar>
+      <copy todir="${plugin.files}">
+         <fileset dir="." includes="META-INF/MANIFEST.MF" />
+         <fileset dir="." includes="plugin.xml" />
+         <fileset dir="." includes="icons/*.gif" />
+      </copy>
+
+      <!-- Assemble plug-in jar -->
+      <mkdir dir="${build.temp}/jars/QualityEclipse/Favorites/eclipse/plugins" />
+      <zip destfile="${plugin.jar}">
+         <zipfileset dir="${plugin.files}">
+            <include name="**/*.*"/>
+         </zipfileset>
+      </zip>
+
+      <!-- Assemble the product zip -->
+      <zip destfile="${product.zip}">
+         <fileset dir="${build.temp}/jars" />
+      </zip>
+
+   </target>
+</project>

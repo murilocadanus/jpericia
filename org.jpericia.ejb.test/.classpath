@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="srccommon"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3.8.1"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="/org.jpericia.ejb/extralibs/javaee.jar"/>
+	<classpathentry kind="lib" path="lib/jbossall-client.jar"/>
+	<classpathentry kind="lib" path="lib/jboss-ejb3-client.jar"/>
+	<classpathentry kind="lib" path="lib/jboss-aop-jdk50-client.jar"/>
+	<classpathentry kind="lib" path="lib/jboss-aspect-jdk50-client.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.jpericia.common"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.core.runtime_3.2.0.v20060603.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.osgi_3.2.2.R32x_v20070118.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3.jar"/>
+	<classpathentry kind="lib" path="lib/itext-2.0.5.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

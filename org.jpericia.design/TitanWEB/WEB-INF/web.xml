@@ -1,0 +1,69 @@
+<web-app id="WebApp_9" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	
+<display-name>Titan</display-name>
+
+	<!-- Standard Action Servlet Configuration -->
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>
+			org.apache.struts.action.ActionServlet
+		</servlet-class>
+
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>
+				/WEB-INF/config/struts/struts-config.xml,
+				/WEB-INF/config/struts/struts-config-cliente.xml
+			</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>chainConfig</param-name>
+			<param-value>
+				org/apache/struts/tiles/chain-config.xml
+			</param-value>
+		</init-param>
+
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<!-- Standard Action Servlet Mapping -->
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<!-- The Usual Welcome File List -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- Diretorio com as propriedades do Service Locator -->
+	<env-entry>
+		<env-entry-name>ServiceLocatorProperties</env-entry-name>
+		<env-entry-type>java.lang.String</env-entry-type>
+		<env-entry-value>C:\repository\workspace\lab\TitanConf\ServiceLocator\</env-entry-value>
+	</env-entry>
+
+	<!-- Diretorio com as propriedades do Log4j  -->
+	<env-entry>
+		<env-entry-name>Log4jProperties</env-entry-name>
+		<env-entry-type>java.lang.String</env-entry-type>
+		<env-entry-value>C:\repository\workspace\lab\TitanConf\Log4j\</env-entry-value>
+	</env-entry>
+
+	<!-- Diretorio com as propriedades do DAO  -->
+	<env-entry>
+		<env-entry-name>DAOProperties</env-entry-name>
+		<env-entry-type>java.lang.String</env-entry-type>
+		<env-entry-value>C:\repository\workspace\lab\TitanConf\DAO\</env-entry-value>
+	</env-entry>
+
+	<listener>
+		<listener-class>
+			com.vbkn.titan.listener.TitanContextListener
+		</listener-class>
+	</listener>
+</web-app>

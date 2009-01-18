@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Perito"
+            id="org.jpericia.perito">
+      </category>
+      <view
+            category="org.jpericia.perito"
+            class="org.jpericia.perito.views.PeritoView"
+            icon="icons/user.png"
+            id="org.jpericia.perito.views.peritoView"
+            name="Perito">
+      </view>
+      <view
+            allowMultiple="false"
+            category="org.jpericia.perito"
+            class="org.jpericia.perito.views.FuncaoPeritoView"
+            icon="icons/chart_organisation.png"
+            id="org.jpericia.perito.views.funcaoPeritoView"
+            name="Função Perito"/>
+      <view
+            allowMultiple="false"
+            category="org.jpericia.perito"
+            class="org.jpericia.perito.views.TituloPeritoView"
+            icon="icons/script.png"
+            id="org.jpericia.perito.views.tituloPeritoView"
+            name="Título Perito"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="org.jpericia.perito.actionPerito"
+            label="%actionSet.label.perito"
+            visible="true">
+         <action
+               class="org.jpericia.perito.actions.PeritoWizardAction"
+               icon="icons/user_add.png"
+               id="org.jpericia.perito.novoPerito"
+               label="%action.label.novoPerito"
+               menubarPath="file/newWizard/additions"
+               style="push"
+               toolbarPath="perito"
+               tooltip="%action.tooltip.novoPerito"/>
+         <action
+               class="org.jpericia.perito.actions.FuncaoPeritoWizardAction"
+               icon="icons/chart_organisation_add.png"
+               id="org.jpericia.perito.novaFuncaoPerito"
+               label="%action.label.novaFuncaoPerito"
+               menubarPath="file/newWizard/additions"
+               style="push"
+               toolbarPath="perito"
+               tooltip="%action.tooltip.novaFuncaoPerito"/>
+         <action
+               class="org.jpericia.perito.actions.TituloPeritoWizardAction"
+               icon="icons/script_add.png"
+               id="org.jpericia.perito.novoTituloPerito"
+               label="%action.label.novoTituloPerito"
+               menubarPath="file/newWizard/additions"
+               style="push"
+               toolbarPath="perito"
+               tooltip="%action.tooltip.novoTituloPerito"/>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.jpericia.perito.perspective.PeritoPerspective"
+            icon="icons/user.png"
+            id="org.jpericia.perito.perspective.peritoPerspective"
+            name="Perito"/>
+   </extension>
+
+</plugin>

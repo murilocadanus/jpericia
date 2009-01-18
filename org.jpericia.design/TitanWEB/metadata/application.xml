@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<application xmlns="http://java.sun.com/xml/ns/j2ee" version="1.4"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/application_1_4.xsd">
+	<description xml:lang="pt">Application description</description>
+	<display-name xml:lang="pt">Mey Primeiro EJB</display-name>
+	<module>
+		<ejb>titanEJB.jar</ejb>
+	</module>
+	<module>
+		<web>
+			<web-uri>titan.war</web-uri>
+			<context-root>titan</context-root>
+		</web>
+	</module>
+</application>
